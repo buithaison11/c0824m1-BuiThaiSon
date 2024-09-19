@@ -1,0 +1,10 @@
+inputVatLy = prompt("Nhập điểm lý");
+inputHoaHoc = prompt("Nhập điểm hóa ");
+inputSinhHoc = prompt("Nhập điểm sinh");
+let vatLy = parseInt(inputVatLy);
+let hoaHoc = parseInt(inputHoaHoc);
+let sinhHoc = parseInt(inputSinhHoc);
+let diemTB = (vatLy + hoaHoc + sinhHoc)/3;
+let tongDiem = vatLy + hoaHoc + sinhHoc;
+document.write("Điểm trung bình : " + diemTB);
+document.write("Tổng điểm 3 môn: " + tongDiem);
