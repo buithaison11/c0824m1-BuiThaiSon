@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="amount">
+<select  id="unit">
+  <option value="VND">VNĐ</option>
+  <option value="USD">USD</option>
+</select>
+<button onclick="doitien()">Đổi tiền</button>
+<h1 id="money">  </h1>
+
+</body>
+
+<script>
+
+  function doitien() {
+    let data = document.getElementById("amount").value;
+    let units = document.getElementById("unit").value;
+    let moneys
+
+    if (units == "USD") {
+      moneys = data * 23000 + " VND";
+    } else {
+      moneys = data + " VNĐ";
+    }
+    document.getElementById("money").innerHTML = moneys;
+  }
+
+</script>
+</html>
