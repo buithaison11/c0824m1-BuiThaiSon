@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra chuỗi message
+<body>
+    <h1>Nhập giá trị vào ô sau </h1>
+    <input type="text" id="message" placeholder="Nhập giá trị...">
+    <button onclick="checkMessage()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        function checkMessage() {
+            let message = document.getElementById("message").value;
+            let result = "";
+
+            if (message === "Employee") {
+                result = "Hello";
+            } else if (message === "Director") {
+                result = "Greetings";
+            } else if (message === "") {
+                result = "No login";
+            } else {
+                result = "";
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Nhập 2 số a và b</h1>
+    <input type="number" id="a">
+    <input type="number" id="b">
+    <button onclick="check()">Kiểm tra </button>
+    <p id="result"></p>
+    <script>
+        function check() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let result = document.getElementById("result");
+            if ((a + b) < 4) {
+                result.textContent = "Below";
+            }   else {
+                result.textContent = "Over";
+            }
+            // Viết tắt 
+             // result = (a + b < 4) ? 'Below' : 'Over'; // Nếu a + b < 4 là Bellow và ngược lại
+             // document.write(result); // in ra màn hình
+        }
+    </script>
+</body>
+
+</html>
