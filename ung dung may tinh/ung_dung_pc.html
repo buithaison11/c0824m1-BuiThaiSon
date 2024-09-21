@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+    button {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+<h1>Calculator</h1>
+<input type="number" id="a">
+<input type="number" id="b"> <br><br>
+<button onclick="adds()">+</button>
+<button onclick="subtract()">-</button>
+<button onclick="multiply()">*</button>
+<button onclick="divide()">/</button>
+<br>
+<h1 id="result"></h1>
+
+<script>
+  function adds() {
+    let a1 = parseInt(document.getElementById("a").value);
+    let b1 = parseInt(document.getElementById("b").value);
+    let results = a1 + b1;
+    document.getElementById("result").innerHTML = results;
+  }
+
+  function subtract() {
+    let a1 = parseInt(document.getElementById("a").value);
+    let b1 = parseInt(document.getElementById("b").value);
+    let results = a1 - b1;
+    document.getElementById("result").innerHTML = results;
+  }
+
+  function multiply() {
+    let a1 = parseInt(document.getElementById("a").value);
+    let b1 = parseInt(document.getElementById("b").value);
+    let results = a1 * b1;
+    document.getElementById("result").innerHTML = results;
+  }
+
+  function divide() {
+    let a1 = parseInt(document.getElementById("a").value);
+    let b1 = parseInt(document.getElementById("b").value);
+    if (b1 === 0) {
+      document.getElementById("result").innerHTML = "Không thể chia cho 0";
+    } else {
+      let results = a1 / b1;
+      document.getElementById("result").innerHTML = results;
+    }
+  }
+</script>
+</body>
+</html>
