@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="height"> Nhập chiều cao (mét):
+        <input type="number" name="height" id="height">
+    </label>
+    <label for="weight"> Nhập cân nặng (kg):
+        <input type="number" name="weight" id="weight">
+    </label>
+    <button onclick="kiem_tra()">Kiểm tra</button>
+    <h1 id="result"></h1>
+    <script>
+        function kiem_tra() {
+    let height = document.getElementById("height").value;
+    let weight = document.getElementById("weight").value;
+    let bmi = weight / ( Math.pow(height, 2) )
+    let result = "";
+    
+    if (bmi < 18.5)
+        result = "Underweight";
+    else if (bmi < 25)
+        result = "Nomarl";
+    else  
+        result = "Overweight";
+
+    document.getElementById("result").innerHTML = result;
+}
+    </script>
+</body>
+</html>
