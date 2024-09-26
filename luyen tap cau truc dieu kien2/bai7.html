@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải Phương Trình Bậc 2</title>
+</head>
+<body>
+
+    <h1>Giải Phương Trình Bậc 2</h1>
+
+    <label for="a">Hệ số a:</label>
+    <input type="number" id="a"><br> <br>
+
+    <label for="b">Hệ số b:</label>
+    <input type="number" id="b"><br> <br>
+
+    <label for="c">Hệ số c:</label>
+    <input type="number" id="c"><br> <br>
+
+    <button onclick="giaiPhuongTrinh()">Giải Phương Trình</button>
+
+    <div id="result"></div>
+
+    <script>
+        function giaiPhuongTrinh() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+
+            let result = document.getElementById('result');
+            
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                result.innerHTML = "Vui lòng nhập đầy đủ các hệ số.";
+                return;
+            }
+
+            if (a === 0) {
+                result.innerHTML = "Đây không phải là phương trình bậc 2.";
+                return;
+            }
+
+            let delta = b * b - 4 * a * c;
+
+            if (delta < 0) {
+                result.innerHTML = "Phương trình vô nghiệm.";
+            } else if (delta === 0) {
+                let x = -b / (2 * a);
+                result.innerHTML = "Phương trình có nghiệm kép: x = " + x;
+            } else {
+                let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                result.innerHTML = "Phương trình có 2 nghiệm: x1 = " + x1 + ", x2 = " + x2;
+            }
+        }
+    </script>
+
+</body>
+</html>

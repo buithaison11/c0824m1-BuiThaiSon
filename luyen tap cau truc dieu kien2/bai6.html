@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính phương trình bậc 1 (ax + b = 0) </h1>
+    <label for="a">Nhập a:
+        <input type="number" name="a" id="a">
+    </label> <br> <br>
+    <label for="b">Nhập b:
+        <input type="number" name="b" id="b">
+    </label>
+    <button onclick="tinh()">Tìm x</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function tinh() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let x = 0;
+            let result = document.getElementById("result");
+            if (a === 0 && b === 0) {
+                document.getElementById("result").innerHTML = "Phương trình vô số nghiệm";
+            } else if (a === 0 && b !== 0) {
+                document.getElementById("result").innerHTML = "Phương trình vô nghiệm";
+            } else if (a !== 0 && b === 0) {
+                document.getElementById("result").innerHTML = x;
+            } else if (a !== 0 && b !== 0) {
+                x = (-b/a);
+                document.getElementById("result").innerHTML = x ;
+            }
+        }
+    </script>
+</body>
+</html>

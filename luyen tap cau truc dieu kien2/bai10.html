@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Viết chương trình tính giá điện</h1>
+    <p>Điện được định giá theo: 20 số đầu là 3000 Đồng / số <br>
+        từ số 20 trở đi là 2500 đồng / số <br>
+        từ số 50 trở đi là 2000 đồng / số
+    </p>
+
+    <label for="soDien">Nhập số điện 
+        <input type="number" name="soDien" id="soDien">
+    </label>
+    <button onclick="checkMoney()">Kiểm tra</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function checkMoney() {
+            let soDien = parseInt(document.getElementById("soDien").value);
+            let money = 0;
+            if (soDien <= 20 && soDien > 0) {
+                money = soDien * 3000;
+                document.getElementById("result").innerHTML = money + "VNĐ";
+            } else if (soDien > 20 && soDien <= 50 ) {
+                money = 20*3000 + (soDien - 20) * 2500;
+                document.getElementById("result").innerHTML = money + "VNĐ";
+            } else if (soDien > 50 ) {
+                money = 20 * 3000 + 30 * 2500 + (soDien - 50) * 2000;
+                document.getElementById("result").innerHTML = money + "VNĐ";
+            } else {
+                document.getElementById("result").innerHTML = soDien + " Không phải là số điện";
+            }
+        }
+    </script>
+</body>
+</html>

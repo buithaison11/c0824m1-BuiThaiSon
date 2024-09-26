@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính diện tích hình tam giác vuông biết 2 cạnh kề a, b </h1>
+    <label for="a">Nhập cạnh a:
+        <input type="number" name="a" id="a">
+    </label> <br> <br>
+    <label for="b">Nhập cạnh b:
+        <input type="number" name="b" id="b">
+    </label>
+    <button onclick="tinh()">Tính diện tích</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function tinh() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let result = (a * b)/2;
+            document.getElementById("result").innerHTML = result + " m2"
+        }
+    </script>
+</body>
+</html>

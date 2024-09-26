@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu,
+         số tháng cho vay và lãi xuất hàng tháng.</h1>
+    <p>Chương trình tính lãi ngân hàng với công thức lãi kép (lãi mẹ đẻ lãi con) có thể được tính dựa trên công thức: <br>
+        A = P x (1+r)<sup>t</sup> <br>
+        trong đó: <br>
+        A là số tiền cả gốc và lãi. <br>
+        P là số tiền gốc. <br>
+        r là số lãi hàng tháng tính theo %. <br>
+        t là số tháng cho vay <br>
+        Lưu ý: Số tháng cho vay không được quá 72 tháng <br>
+    </p>
+    <label for="tienGoc">Số tiền gốc
+        <input type="number" name="tienGoc" id="tienGoc"> <br> <br>
+    </label>
+    <label for="lai">Lãi theo tháng tính bằng phần trăm
+        <input type="number" name="lai" id="lai"> <br> <br>
+    </label>
+    <label for="thang">Số tháng cho vay
+        <input type="number" name="thang" id="thang"> <br> <br>
+    </label>
+    <button onclick="checkMoney()">Kiểm tra</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function checkMoney() {
+            let tienGoc = parseInt(document.getElementById("tienGoc").value);
+            let lai = parseInt(document.getElementById("lai").value);
+            let thang = parseInt(document.getElementById("thang").value);
+            let tongtien = 0;
+
+            if (tienGoc <= 0 && lai <= 0 && thang <= 0) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập các tham số lớn hơn không";
+                return;
+            }
+
+            if (isNaN(tienGoc) || isNaN(lai) || isNaN(thang)) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập đầy đủ các hệ số";
+                return;
+            }
+
+            if (thang > 72) {
+                document.getElementById("result").innerHTML = "Ngân hàng không cho vay quá 72 tháng";
+                return;
+            }
+
+            let tongTien = tienGoc * Math.pow(1 + (lai/100), thang);
+            document.getElementById("result").innerHTML = "Tổng tiền sau " + thang + " tháng "+ " là: " + tongTien.toFixed(2) + "VNĐ";
+        }
+    </script>
+</body>
+</html>
