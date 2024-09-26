@@ -36,7 +36,7 @@
             let thang = parseInt(document.getElementById("thang").value);
             let tongtien = 0;
 
-            if (tienGoc <= 0 && lai <= 0 && thang <= 0) {
+            if (tienGoc < 0 && lai < 0 && thang < 0) {
                 document.getElementById("result").innerHTML = "Vui lòng nhập các tham số lớn hơn không";
                 return;
             }
