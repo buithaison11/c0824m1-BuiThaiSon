@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính hoa hồng nhận được tùy theo mức doanh số bán hàng</h1>
+<p>Một cửa hàng bán hoa hồng với giá 20.000 VNĐ một bông. Nếu nhân viên bán được 20 bông sẽ được 1% số tiền bán được, 50 bông sẽ được 5% số tiền và 100 bông sẽ được 10% số tiền bán được.</p>
+
+<label for="hoa">Số bông hoa bán được là:
+    <input type="number" name="hoa" id="hoa">
+</label>
+<button onclick="checkMoney()">Kiểm tra</button>
+<h1 id="result"></h1>
+
+<script>
+    function checkMoney() {
+        let hoa = parseInt(document.getElementById("hoa").value);
+        let result = document.getElementById("result");
+        let commission = 0;
+
+        if (hoa >= 100) {
+            commission = 20000 * hoa * 0.1;
+        } else if (hoa >= 50) {
+            commission = 20000 * hoa * 0.05;
+        } else if (hoa >= 20) {
+            commission = 20000 * hoa * 0.01;
+        } else {
+            result.innerHTML = "Không có doanh thu";
+            return;
+        }
+
+        result.innerHTML = "Hoa hồng nhận được: " + commission + "VNĐ";
+    }
+</script>
+
+</body>
+</html>

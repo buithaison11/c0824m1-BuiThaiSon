@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nhập điểm thi giữa kì và cuối kì để đánh giá học lực</h1>
+    <label for="diem1"> Nhập điểm giữa kì:
+        <input type="number" name="diem1" id="diem1">
+    </label>
+    <label for="diem2"> Nhập điểm cuối kì:
+        <input type="number" name="diem2" id="diem2">
+    </label>
+    <button onclick="checkHoc()">Kiểm tra</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function checkHoc() {
+            let diem1 = parseInt(document.getElementById("diem1").value);
+            let diem2 = parseInt(document.getElementById("diem2").value);
+            let diemTB = (diem1 + diem2) / 2;
+            if (diemTB >= 9 && diemTB <= 10) {
+                document.getElementById("result").innerHTML = "Giỏi";
+            } else if (diemTB >= 8) {
+                document.getElementById("result").innerHTML = "Khá";
+            }else if (diemTB >= 7) {
+                document.getElementById("result").innerHTML = "Trung Bình";
+            } else if ( diemTB > 0) {
+                document.getElementById("result").innerHTML = "Yếu";
+            } else {
+                document.getElementById("result").innerHTML = "Nhập điểm không hợp lệ vui lòng nhập lại";
+            }
+        }
+    </script>
+</body>
+</html>

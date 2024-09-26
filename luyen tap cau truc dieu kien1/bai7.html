@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính cước điện thoại</h1>
+<p>
+    khách hàng gọi 10 phút đầu giá 500(đồng/phút);<br>
+    khách gọi từ phút 10 trở đi giá 300(đồng/phút);<br>
+    khách gọi từ phút 50 trở đi giá 200(đồng/phút);
+</p>
+<label for="tg">Nhập số phút gọi 
+    <input type="number" name="tg" id="tg">
+</label>
+<button onclick="checkCuoc()">Kiểm tra</button>
+<h1 id="result"></h1>
+
+<script>
+    function checkCuoc() {
+        let tg = parseInt(document.getElementById("tg").value);
+        let result = document.getElementById("result");
+        let tinhtien = 0;
+
+        if (tg > 0 && tg <= 10) {
+                tinhtien = tg*500;
+            }else if (tg > 10 && tg < 50) {
+                tinhtien = tg*300;
+            }else if (tg >= 50) {
+                tinhtien = tg*200;
+            } else {
+                result.innerHTML = "Vui lòng nhập lại";
+                return;
+            }
+
+        result.innerHTML = "Số tiền cước cần trả là: " + tinhtien + " đồng";
+    }
+</script>
+
+</body>
+</html>

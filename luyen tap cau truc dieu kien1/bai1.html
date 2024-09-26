@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kiểm tra chia hết</h1>
+    <label for="a">Nhập a 
+        <input type="number" name="a" id="a">
+    </label>
+    <label for="b">Nhập b
+        <input type="number" name="b" id="b">
+    </label>
+    <button onclick="checkDiv()">Kiểm tra a chia hết cho b</button>
+    <h1 id="result"></h1>
+    <script>
+        function checkDiv() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let result = document.getElementById("result");
+
+            if (a % b === 0) {
+                result.innerHTML = "a chia hết cho b";
+            } else {
+                result.innerHTML = "a không chia hết cho b";
+            }
+        }
+    </script>
+</body>
+</html>

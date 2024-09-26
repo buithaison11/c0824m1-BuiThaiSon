@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kiểm tra tuổi vào lớp 10</h1>
+    <label for="age">Nhập tuổi:
+        <input type="number" name="age" id="age">
+    </label>
+    <button onclick="checkAge()">Kiểm tra</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function checkAge() {
+            let age = parseInt(document.getElementById("age").value);
+            let result = document.getElementById("result");
+            if (age >= 16) {
+                result.innerHTML = "Đã đủ tuổi học lớp 10";
+            } else {
+                result.innerHTML = "Không đủ tuổi vào lớp 10";
+            }
+        }
+    </script>
+</body>
+</html>

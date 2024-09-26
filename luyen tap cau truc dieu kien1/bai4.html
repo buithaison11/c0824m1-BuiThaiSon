@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nhập 3 số nguyên và tìm giá trị lớn nhất</h1>
+    <label for="a"> Nhập a:
+        <input type="number" name="a" id="a">
+    </label>
+    <label for="b"> Nhập b:
+        <input type="number" name="b" id="b">
+    </label>
+    <label for="c"> Nhập c:
+        <input type="number" name="c" id="c">
+    </label>
+    <button onclick="checkNumber()">Kiểm tra</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function checkNumber() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value);
+            if (a > b && a > c) {
+                document.getElementById("result").innerHTML = `${a} là số lớn nhất`;
+            } else if (b > a && b > c) {
+                document.getElementById("result").innerHTML = `${b} là số lớn nhất`;
+            } else {
+                document.getElementById("result").innerHTML = `${c} là số lớn nhất`;
+            }
+        }
+    </script>
+</body>
+</html>

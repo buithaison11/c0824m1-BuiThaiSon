@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nhập số nguyên bất kì kiểm tra xem có lớn hơn 0 không</h1>
+    <label for="so">Nhập số nguyên
+        <input type="number" name="so" id="so">
+    </label>
+    <button onclick="checkNumber()">Kiểm tra</button>
+    <h1 id="result"></h1>
+    <script>
+        function checkNumber() {
+            let so = parseInt(document.getElementById("so").value);
+            if (so > 0) {
+                document.getElementById("result").innerHTML = ` Số ${so} lớn hơn 0 `;
+            } else {
+                document.getElementById("result").innerHTML = ` Số ${so} nhỏ hơn 0 `;
+            }
+        }
+    </script>
+</body>
+</html>
