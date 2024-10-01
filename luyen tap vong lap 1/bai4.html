@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let F0 = 0, F1 = 1;
+        let fibonacci; 
+    
+        while (true) { 
+            let F = F0 + F1;
+            F0 = F1;
+            F1 = F;
+            if (F % 5 === 0) {
+                fibonacci = F;
+                document.write("Số Fibonacci đầu tiên chia hết cho 5 là: " + fibonacci);
+                break;
+            }
+        }
+    
+        
+    </script>
+    
+</body>
+</html>
