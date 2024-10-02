@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let so = +prompt("Nhập số nguyên dương để tính giai thừa");
+        let gt = 1;
+        while(true) {
+            if(so < 0){
+                so = +prompt("Vui lòng nhập số lớn hơn 0");
+                continue;
+            }else if(so == 0 || so == 1){
+                gt=1;
+            }else{
+                for (let i=1;i<=so;i++) {
+                    gt = gt*i
+                }
+            }
+            document.write("Giai thừa của "+so+" = "+gt);
+            break;
+        }
+    </script>
+</body>
+</html>

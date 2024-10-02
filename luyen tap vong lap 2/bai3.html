@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        document.write("Góc tam giác ở bên dưới trái<br>")
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j <= i; j++) {
+                let star = "*"
+                document.write(star)
+            }
+            document.write("<br>")
+        }
+        document.write("Góc tam giác ở bên trên trái<br>")
+        for (let i = 5; i >= 0; i--) {
+            for (let j = 0; j <= i; j++) {
+                let star = "*"
+                document.write(star)
+            }
+            document.write("<br>")
+        }
+        document.write("Góc tam giác ở bên dưới phải<br>")
+        for (let i = 1; i <= 5; i++) {
+            let line = ' ';
+            // Thêm khoảng trắng trước các dấu sao
+            for (let j = 1; j <= 5 - i; j++) {
+                line += ' ';
+            }
+            // Thêm các dấu sao
+            for (let k = 1; k <= i; k++) {
+                line += '*';
+            }
+            // In ra dòng hiện tại
+            document.write(line);
+        }
+
+    </script>
+</body>
+
+</html>
