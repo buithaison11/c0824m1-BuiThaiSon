@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Prompt the user for input and store it in the 'num' variable
+        const num = window.prompt();
+
+        // Chuyển số thành chuỗi và lưu nó vào biến 'str'
+        const str = num.toString();
+
+        // Khởi tạo một mảng 'result' với ký tự đầu tiên của chuỗi
+        const result = [str[0]];
+
+        // Lặp qua các ký tự của chuỗi bắt đầu từ chỉ mục 1
+        for (let x = 1; x < str.length; x++) {
+
+            // Kiểm tra xem ký tự trước và ký tự hiện tại có phải là chữ số chẵn không
+            if (str[x - 1] % 2 === 0 && str[x] % 2 === 0) {
+                // Nếu cả hai đều chẵn, hãy đẩy '-' và ký tự hiện tại vào mảng 'result'
+                result.push('-', str[x]);
+            } else {
+                // Nếu cả hai không đều, đẩy ký tự hiện tại vào mảng 'result'
+                result.push(str[x]);
+            }
+        }
+
+
+        // Xuất mảng 'result' đã nối dưới dạng chuỗi
+        console.log(result.join(''));
+
+    </script>
+</body>
+
+</html>

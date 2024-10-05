@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "The Quick Brown Fox";  // Chuỗi đầu vào
+        let result = "";  // Biến để lưu kết quả
+
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+            if (char === char.toLowerCase()) {
+                result += char.toUpperCase();  // Nếu là chữ thường, đổi thành chữ hoa
+            } else {
+                result += char.toLowerCase();  // Nếu là chữ hoa, đổi thành chữ thường
+            }
+        }
+
+        console.log(result);  // Xuất ra kết quả: tHE qUICK bROWN fOX
+
+
+
+    </script>
+</body>
+
+</html>

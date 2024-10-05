@@ -28,10 +28,10 @@
         }
         document.write("Góc tam giác ở bên dưới phải<br>")
         for (let i = 1; i <= 5; i++) {
-            let line = ' ';
+            let line = '&nbsp&nbsp';
             // Thêm khoảng trắng trước các dấu sao
             for (let j = 1; j <= 5 - i; j++) {
-                line += ' ';
+                line += '&nbsp&nbsp';
             }
             // Thêm các dấu sao
             for (let k = 1; k <= i; k++) {
@@ -39,7 +39,24 @@
             }
             // In ra dòng hiện tại
             document.write(line);
+            document.write("<br>");
         }
+        document.write("Góc tam giác ở bên trên phải<br>")
+        for (let i = 5; i >= 0; i--) {
+            let line = '&nbsp&nbsp';
+            // Thêm khoảng trắng trước các dấu sao
+            for (let j = 5; j >= 0 + i; j--) {
+                line += '&nbsp&nbsp';
+            }
+            // Thêm các dấu sao
+            for (let k = 1; k <= i; k++) {
+                line += '*';
+            }
+            // In ra dòng hiện tại
+            document.write(line);
+            document.write("<br>");
+        }
+
 
     </script>
 </body>
