@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Cách 1 phổ thông -->
+    <!-- <label for="num">Nhập đại lượng cần quy đổi</label>
+    <input type="number" name="num" id="num">
+    <button onclick="feetToMeter()">Chuyển từ feet sang meters</button>
+    <button onclick="meterToFeet()">Chuyển từ meters sang feet</button><br>
+    <p id="result"></p>
+    <script>
+        function feetToMeter() {
+            let feet = parseFloat(document.getElementById("num").value);
+            let meter = 0.305 * feet;
+            document.getElementById("result").innerHTML = meter + " meters";
+        }
+
+        function meterToFeet() {
+            let meter = parseFloat(document.getElementById("num").value);
+            let feet = 3.279 * meter;
+            document.getElementById("result").innerHTML = feet + " feet";
+        }
+    </script> -->
+    <!-- Cách 2 gọi hàm có return -->
+    <label for="num">Nhập đại lượng cần quy đổi</label>
+    <input type="number" name="num" id="num">
+    <button onclick="feetToMeter()">Chuyển từ feet sang meters</button>
+    <button onclick="meterToFeet()">Chuyển từ meters sang feet</button><br>
+    <p id="result"></p>
+    <script>
+        // Chuyển đổi từ feet sang meters
+        function footToMeter(foot) {
+            return 0.305 * foot;
+        }
+
+        // Chuyển đổi từ meters sang feet
+        function meterToFoot(meter) {
+            return 3.279 * meter;
+        }
+
+        function feetToMeter() {
+            let feet = parseFloat(document.getElementById("num").value);
+            let meters = footToMeter(feet); // gọi hàm
+            document.getElementById("result").innerHTML = feet + " feet = " + meters + " meters";
+        }
+
+        function meterToFeet() {
+            let meter = parseFloat(document.getElementById("num").value);
+            let feet = meterToFoot(meter); // gọi hàm
+            document.getElementById("result").innerHTML = meter + " meters = " + feet + " feet";
+        }
+    </script>
+
+
+</body>
+
+</html>
