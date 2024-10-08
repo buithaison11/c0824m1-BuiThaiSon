@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nối 2 mảng</title>
+</head>
+<body>
+    <h3>Nhập vào 10 phần tử số nguyên cho mảng a:</h3>
+    <input style="width: 360px;" type="text" id="arrayAInput" placeholder="Nhập các phần tử của mảng a, cách nhau bằng dấu phẩy">
+    <br><br>
+    <button onclick="initializeArrayA()">Khởi tạo mảng a</button>
+    <p id="arrayADisplay"></p>
+
+    <h3>Nhập vào 10 phần tử số nguyên cho mảng b:</h3>
+    <input style="width: 360px;" type="text" id="arrayBInput" placeholder="Nhập các phần tử của mảng b, cách nhau bằng dấu phẩy">
+    <br><br>
+    <button onclick="initializeArrayB()">Khởi tạo mảng b</button>
+    <p id="arrayBDisplay"></p>
+
+    <br>
+    <button onclick="mergeArrays()">Nối mảng a và b vào mảng c</button>
+    <p id="arrayCDisplay"></p>
+
+    <script>
+        // Khởi tạo hai mảng a và b
+        let arrayA = [];
+        let arrayB = [];
+        let arrayC = new Array(20); // Mảng c gồm 20 phần tử
+
+        // Hàm khởi tạo mảng a với 10 phần tử từ input
+        function initializeArrayA() {
+            let input = document.getElementById("arrayAInput").value;
+            let arr = input.split(',').map(item => parseInt(item.trim()));
+
+            // Kiểm tra nếu mảng không có đúng 10 phần tử hoặc có phần tử không hợp lệ
+            if (arr.length !== 10 || arr.includes(NaN)) {
+                alert("Hãy nhập đúng 10 số nguyên cho mảng a!");
+                return;
+            }
+
+            // Nếu hợp lệ, gán giá trị cho mảng a
+            arrayA = arr;
+            document.getElementById("arrayADisplay").innerHTML = "Mảng a đã nhập: " + arrayA.join(', ');
+        }
+
+        // Hàm khởi tạo mảng b với 10 phần tử từ input
+        function initializeArrayB() {
+            let input = document.getElementById("arrayBInput").value;
+            let arr = input.split(',').map(item => parseInt(item.trim()));
+
+            // Kiểm tra nếu mảng không có đúng 10 phần tử hoặc có phần tử không hợp lệ
+            if (arr.length !== 10 || arr.includes(NaN)) {
+                alert("Hãy nhập đúng 10 số nguyên cho mảng b!");
+                return;
+            }
+
+            // Nếu hợp lệ, gán giá trị cho mảng b
+            arrayB = arr;
+            document.getElementById("arrayBDisplay").innerHTML = "Mảng b đã nhập: " + arrayB.join(', ');
+        }
+
+        // Hàm nối hai mảng a và b vào mảng c
+        function mergeArrays() {
+            if (arrayA.length !== 10 || arrayB.length !== 10) {
+                alert("Hãy khởi tạo cả hai mảng a và b trước khi nối!");
+                return;
+            }
+
+            // Nối mảng b và a vào mảng c
+            arrayC = arrayA.concat(arrayB);
+
+            // Hiển thị mảng c
+            document.getElementById("arrayCDisplay").innerHTML = "Mảng c sau khi nối mảng a và b: " + arrayC.join(', ');
+        }
+    </script>
+</body>
+</html>

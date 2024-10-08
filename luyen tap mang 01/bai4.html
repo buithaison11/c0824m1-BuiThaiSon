@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+    <input type="text" id="arrayInput" placeholder="Nhập một phần tử của mảng">
+    <button onclick="addElement()">Add</button>
+    <button onclick="reverseArray()">Đảo ngược mảng</button>
+    <p id="arrayDisplay"></p>
+    <p id="result"></p>
+    
+    <script>
+        // Khởi tạo một mảng trống để lưu trữ các phần tử
+        let array = [];
+    
+        // Hàm thêm phần tử vào mảng
+        function addElement() {
+            // trim là xóa bỏ khoảng trắng thừa ở đầu và cuối chuỗi
+            // tránh người dùng nhập chuỗi chỉ chứa khoảng trắng 
+            let input = document.getElementById("arrayInput").value.trim();
+            
+            if (input !== "") {
+                // Thêm phần tử vào mảng (Thêm phần tử vừa nhập vào cuối mảng)
+                array.push(input);
+                // Hiển thị mảng hiện tại
+                // join , là để chuyển đổi mảng array thành một chuỗi ngăn cách nhau bằng dấu ,
+                document.getElementById("arrayDisplay").innerHTML = "Mảng hiện tại: " + array.join(', ');
+                // Xóa nội dung trong ô input sau khi thêm phần tử
+                document.getElementById("arrayInput").value = "";
+            } else {
+                alert("Hãy nhập một phần tử!");
+            }
+        }
+    
+        // Hàm đảo ngược mảng
+        function reverseArray() {
+            if (array.length > 0) {
+                // Đảo ngược mảng
+                // reverse() sẽ đảo ngược thứ tự các phần tử trong mảng
+                // ...array là tạo một bản sao của mảng array và đảo ngược bản sao k ảnh hưởng bản góc
+                let reversedArray = [...array].reverse();
+                // Hiển thị mảng đã đảo ngược
+                document.getElementById("result").innerHTML = "Mảng đảo ngược: " + reversedArray.join(', ');
+            } else {
+                alert("Mảng rỗng! Hãy thêm phần tử trước khi đảo ngược.");
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa phần tử khỏi mảng</title>
+</head>
+<body>
+    <h3>Nhập vào 10 phần tử số nguyên cho mảng:</h3>
+    <input style="width: 360px;" type="text" id="arrayInput" placeholder="Nhập các phần tử của mảng, cách nhau bằng dấu phẩy">
+    <br><br>
+    <button onclick="initializeArray()">Khởi tạo mảng</button>
+    <p id="arrayDisplay"></p>
+
+    <h3>Nhập số nguyên V cần tìm:</h3>
+    <input type="number" id="valueInput" placeholder="Nhập số nguyên V">
+    <br><br>
+    <button onclick="checkAndRemoveValue()">Tìm và xóa số V trong mảng</button>
+    <p id="result"></p>
+
+    <script>
+        // Khởi tạo mảng số nguyên
+        let array = [];
+
+        // Hàm khởi tạo mảng với 10 phần tử từ input
+        function initializeArray() {
+            let input = document.getElementById("arrayInput").value;
+            // Tách chuỗi nhập liệu thành các phần tử cách nhau bởi dấu phẩy và chuyển đổi thành số nguyên
+            let arr = input.split(',').map(item => parseInt(item.trim()));
+            
+            // Kiểm tra nếu mảng không có đúng 10 phần tử hoặc có phần tử không hợp lệ
+            if (arr.length !== 10 || arr.includes(NaN)) {
+                alert("Hãy nhập đúng 10 số nguyên!");
+                return;
+            }
+            
+            // Nếu hợp lệ, gán giá trị cho mảng
+            array = arr;
+            document.getElementById("arrayDisplay").innerHTML = "Mảng đã nhập: " + array.join(', ');
+        }
+
+        // Hàm kiểm tra và xóa phần tử V trong mảng nếu có
+        function checkAndRemoveValue() {
+            let value = parseInt(document.getElementById("valueInput").value);
+            
+            // Kiểm tra nếu giá trị nhập vào không phải là số nguyên
+            if (isNaN(value)) {
+                alert("Hãy nhập một số nguyên hợp lệ cho V!");
+                return;
+            }
+
+            // Kiểm tra xem V có trong mảng hay không
+            let index = array.indexOf(value);
+            if (index !== -1) {
+                // Nếu V có trong mảng, thực hiện dịch chuyển các phần tử bên phải sang trái
+                for (let i = index; i < array.length - 1; i++) {
+                    array[i] = array[i + 1];
+                }
+                // Gán phần tử cuối cùng thành 0
+                array[array.length - 1] = 0;
+
+                document.getElementById("result").innerHTML = "Phần tử " + value + " đã bị xóa. Mảng mới: " + array.join(', ');
+            } else {
+                document.getElementById("result").innerHTML = "Phần tử " + value + " không có trong mảng.";
+            }
+        }
+    </script>
+</body>
+</html>
