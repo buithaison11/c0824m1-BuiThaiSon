@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t</title>
+</head>
+<body>
+    <label for="arrayInput">Nhập các ký tự, cách nhau bằng dấu phẩy:</label>
+    <input type="text" id="arrayInput" ><br>
+    <label for="charInput">Nhập ký tự cần kiểm tra:</label>
+    <!-- chỉ cho nhập 1 kí tự để kiểm tra -->
+    <input type="text" id="charInput" maxlength="1"><br> 
+    <button onclick="checkCharacter()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        // Hàm kiểm tra và đếm số lần xuất hiện của ký tự trong mảng
+        function checkCharacter() {
+            let arrayInput = document.getElementById("arrayInput").value;
+            let charInput = document.getElementById("charInput").value;
+            let array = arrayInput.split(','); // Chuyển đổi chuỗi thành mảng ký tự
+
+            if (charInput.length !== 1) { // Nhập 1 ký tự để kiểm tra
+                document.getElementById("result").innerText = "Vui lòng nhập một ký tự duy nhất.";
+                return;
+            }
+
+            let count = 0; // đếm = 0
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === charInput) { // kiểm tra phần tử trong mảng có trùng với ký tự kiểm tra hay không
+                    count++; // đếm số lần xuất hiện của phần tử đấy trong mảng
+                }
+            }
+
+            let result = count > 0 ? count : -1;// nếu count lớn hơn 0 thì in ra count còn không thì in ra -1
+            document.getElementById("result").innerText = result !== -1 ? // nếu khác -1 thì in ra ký tự đấy xuất hiện mấy lần trong mảng
+                `Ký tự '${charInput}' xuất hiện ${count} lần trong mảng.` : 
+                `Ký tự '${charInput}' không có trong mảng.`; // nếu = -1 thì không có ký tự nào trong mảng
+        }
+    </script>
+</body>
+</html>

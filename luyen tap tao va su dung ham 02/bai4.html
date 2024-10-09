@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t</title>
+</head>
+<body>
+    <label for="charInput">Nhập một ký tự:</label>
+    <input type="text" id="charInput" maxlength="1">
+    <button onclick="checkCharacter()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        // Hàm kiểm tra xem ký tự có phải là ký tự số không
+        function isNumericCharacter(char) {
+            return !isNaN(char) && char !== ''; // 
+        }
+
+        // Hàm hiển thị kết quả kiểm tra
+        function checkCharacter() {
+            const char = document.getElementById("charInput").value; // lấy giá trị nhập vào
+            const result = isNumericCharacter(char); // gọi hàm
+            console.log(result);// Test xem ra true hay false
+            document.getElementById("result").innerText = result ? "Ký tự nhập vào là ký tự số." : "Ký tự nhập vào không phải là ký tự số.";
+        }
+    </script>
+</body>
+</html>

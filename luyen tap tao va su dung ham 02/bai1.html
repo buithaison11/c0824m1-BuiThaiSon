@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Calculator</title>
+</head>
+<body>
+    <label for="numberInput">Nhập một số:</label>
+    <input type="number" id="numberInput">
+    <button onclick="displaySquare()">Tính bình phương</button>
+    <p id="result"></p>
+
+    <script>
+        // Hàm tính bình phương của một số
+        function calculateSquare(number) {
+            return number * number;
+        }
+
+        // Hàm hiển thị kết quả bình phương
+        function displaySquare() {
+            const number = parseFloat(document.getElementById("numberInput").value); // Lấy giá trị nhập vào
+            const result = calculateSquare(number); // Tính bình phương
+            document.getElementById("result").innerText = "Bình phương của " + number + " là " + result; // Hiển thị kết quả
+        }
+    </script>
+</body>
+</html>
