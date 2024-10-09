@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So sánh và Tính tổng</title>
+</head>
+
+<body>
+    <h1>So sánh và Tính tổng</h1>
+    <label for="firstNumber">Số thứ nhất:</label>
+    <input type="number" id="firstNumber" name="firstNumber"><br><br>
+    <label for="secondNumber">Số thứ hai:</label>
+    <input type="number" id="secondNumber" name="secondNumber"><br><br>
+    <button onclick="compareAndSum()">Kiểm tra</button>
+    <p id="result"></p>
+    <script>
+        function compareAndSum() {
+            let a = parseFloat(document.getElementById('firstNumber').value);
+            let b = parseFloat(document.getElementById('secondNumber').value);
+
+            if (a > b) {
+                alert("Giá trị của tham số thứ nhất lớn hơn tham số thứ hai.");
+            } else {
+                let sum = a + b;
+                document.getElementById('result').innerText = "Tổng của hai tham số là: " + sum;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

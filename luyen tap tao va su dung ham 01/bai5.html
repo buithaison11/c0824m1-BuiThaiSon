@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star and Constellation Finder</title>
+</head>
+<body>
+    <h1>Star and Constellation Finder</h1>
+    <p id="result"></p>
+
+    <script>
+        // Mảng chứa tên các ngôi sao
+        const stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        // Mảng chứa tên các chòm sao tương ứng
+        const constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        // Hàm tìm chòm sao dựa trên tên ngôi sao
+        function findConstellation(starName) {
+            const index = stars.indexOf(starName);
+            if (index !== -1) {
+                return constellations[index];
+            } else {
+                return "Không tìm thấy ngôi sao nào với tên này.";
+            }
+        }
+
+        // Hộp thoại prompt để người dùng nhập tên ngôi sao
+        const userInput = prompt("Nhập tên ngôi sao:");
+        const result = findConstellation(userInput);
+
+        // Hiển thị kết quả trên màn hình
+        document.getElementById("result").innerText = result;
+    </script>
+</body>
+</html>

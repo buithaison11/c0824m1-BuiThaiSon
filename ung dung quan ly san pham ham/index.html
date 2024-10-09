@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 600px;
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        /* even là lẻ ; odd là chẳn */
+        tr:nth-child(odd) {
+            background-color: rgb(252, 246, 246);
+        }
+
+        td {
+            text-align: center;
+            width: 200px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            width: 70px;
+            height: 30px;
+            border: none;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 600px; height: 100px; background-color: rgb(252, 246, 246);">
+        <div style="padding-top: 40px; padding-left: 40px;">
+            <input style="width: 300px; height: 30px;" type="text" name="" id="productSearch">
+            <button id="productSearch">Search</button>
+            <input style="width: 300px; height: 30px;" type="text" name="" id="productAdd">
+            <button id="add">ADD</button>
+        </div>
+    </div>
+    <div id="result"></div>
+    <script>
+        // số nhiều mảng thì thêm s vào phía sau
+        let products = [];
+        // hàm hiển thị không cần return
+        function display(products) {
+            let result = "<table>"
+            for (let i = 0; i < products.length; i++) {
+                result += "<tr>"
+                result += `<td>${products[i]}</td>`
+                result += `<td><button>Edit</button></td>`
+                result += `<td><button onclick="deleteProduct(${i})">Delete</button></td>`
+                result += "</tr>"
+
+            }
+            result += "</table>"
+            document.getElementById("result").innerHTML = result;
+        }
+
+        document.getElementById("add").addEventListener("click", function () {
+            let productAdd = document.getElementById("productAdd").value;
+            if (productAdd.length > 3 && productAdd.length < 180) {
+                products.push(productAdd);
+                display(products);
+                document.getElementById("productAdd").value = "";
+                alert("Thêm sản phẩm thành công");
+            } else {
+                alert("Cần nhập trên 3 kí tự và dưới 180 ký tự")
+            }
+
+        })
+
+        function deleteProduct(i) {
+            let isDelete = confirm(`Bạn có chắc muốn xóa sản phẩm ${products[i]}?`)
+            if (isDelete) {
+                products.splice(i, 1);
+                display(products);
+                alert("Xóa thành công")
+
+            }
+        }
+        
+        document.getElementById("search").addEventListener("click", function () { 
+            let productSearch = document.getElementById("productSearch").value;
+            //filter cú pháp tương tác với mảng lặp cho phép duyệt mảng product  mỗi phần tử 
+            // includes kiểm tra chuỗi produtSearch có nằm trong sản phẩm hay không
+
+            let result = product.filter(product => product.includes(productSearch));
+            display(result)
+        })
+
+        let product = ["nokia", "Iphone", "oppo"];
+        display(product);
+    </script>
+</body>
+
+</html>
