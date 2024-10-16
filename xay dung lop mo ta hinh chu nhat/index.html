@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Example</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="rectangleCanvas" width="500" height="500"></canvas>
+    <div>
+        <label for="width">Width:</label>
+        <input type="number" id="width" value="100">
+        <label for="height">Height:</label>
+        <input type="number" id="height" value="100">
+        <button onclick="updateRectangle()">Update Rectangle</button>
+    </div>
+    <div>
+        <p id="area"></p>
+        <p id="perimeter"></p>
+    </div>
+    <script>
+        // Tến lớp phải đặt là danh từ và phiết hoa chữ cái đòu tiên
+        // Lớp Rectangle
+        class Rectangle {
+            //Khởi tạo đối tượng hình chữ nhật với chiều rộng (width) và chiều cao (height)
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+            // method (hành vi của đối tượng)
+            getArea() {
+                return this.width * this.height;
+            }
+
+            getPerimeter() {
+                return 2 * (this.width + this.height);
+            }
+            //  Vẽ hình chữ nhật trên canvas, xóa nội dung cũ và vẽ lại hình chữ nhật mới
+            draw(context) {
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+                context.strokeRect(10, 10, this.width, this.height);
+            }
+        }
+
+        let canvas = document.getElementById('rectangleCanvas');
+        let context = canvas.getContext('2d');
+        // let rectangle = new Rectangle(100, 100); để sẵn thuộc tính là 100 và 100 vẽ hình sẵn
+
+        function updateRectangle() {
+            // lấy giá tri width và height
+            let width = parseInt(document.getElementById('width').value);
+            let height = parseInt(document.getElementById('height').value);
+            rectangle = new Rectangle(width, height);
+            rectangle.draw(context);
+            document.getElementById('area').innerText = `Area: ${rectangle.getArea()}`;
+            document.getElementById('perimeter').innerText = `Perimeter: ${rectangle.getPerimeter()}`;
+        }
+
+        rectangle.draw(context);
+        document.getElementById('area').innerText = `Area: ${rectangle.getArea()}`;
+        document.getElementById('perimeter').innerText = `Perimeter: ${rectangle.getPerimeter()}`;
+
+    </script>
+</body>
+
+</html>

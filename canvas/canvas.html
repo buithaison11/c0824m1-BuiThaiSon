@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+    <script>
+        // =============== Vẽ một đường thẳng bằng Canvas ======================
+        // Lấy đối tượng canvas bằng id
+        var c = document.getElementById("myCanvas");
+        // Lấy ngữ cảnh 2d để dùng trên vùng vẽ
+        var ctx = c.getContext("2d");
+        // Di chuyển bút vẽ đến tọa độ (0,0)
+        ctx.moveTo(30, 30);
+        // Vễ một đường tọa độ từ (0,0) đến (200,100)
+        ctx.lineTo(100, 30);
+        // Vẽ đường thẳng định nghĩa
+        ctx.stroke();
+
+
+        // =============== Vẽ một đường tròn bằng Canvas ======================
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        // Bắt đầu vẽ bằng một đường vẽ mới
+        ctx.beginPath();
+        // Vẽ một cung tròn với:
+        // - Tọa độ tâm (95,50)
+        // - Bán kính 40
+        // - Góc bắt đầu là 0 và góc kết thúc là 2
+        // - *Math.PI là một vòng tròn đầy đủ
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        // Vẽ đường viền của hình tròn
+        ctx.stroke();
+
+
+        // =============== Vẽ chữ bằng Canvas ======================
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        //Thiết lập font chữ cho văn bản là “30px Arial”
+        ctx.font = "30px Arial";
+        //Vẽ văn bản “Hello World” tại tọa độ (10, 50)
+        ctx.fillText("Hello World", 10, 50);
+
+
+
+    </script>
+</body>
+
+</html>

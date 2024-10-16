@@ -48,7 +48,7 @@
 
     <script>
         let products = ["nokia", "Iphone", "oppo"];
-
+        // Hiển thị sản phẩm
         function display(products) {
             let result = "<table>";
             for (let i = 0; i < products.length; i++) {
@@ -61,7 +61,7 @@
             result += "</table>";
             document.getElementById("result").innerHTML = result;
         }
-
+        // Hàm thêm vào mảng
         document.getElementById("add").addEventListener("click", function () {
             let productAdd = document.getElementById("productAdd").value;
             if (productAdd.length > 3 && productAdd.length < 180) {
@@ -73,7 +73,7 @@
                 alert("Cần nhập trên 3 ký tự và dưới 180 ký tự");
             }
         });
-
+        // Hàm xóa phần tử khỏi mảng 
         function deleteProduct(i) {
             let isDelete = confirm(`Bạn có chắc muốn xóa sản phẩm ${products[i]}?`);
             if (isDelete) {
@@ -82,13 +82,13 @@
                 alert("Xóa thành công");
             }
         }
-
+        // Tìm kiếm
         document.getElementById("search").addEventListener("click", function () {
             let productSearch = document.getElementById("productSearch").value;
             let result = products.filter(product => product.includes(productSearch));
             display(result);
         });
-
+        // hiển thị sản phẩm ra màn hình
         display(products);
     </script>
 </body>
