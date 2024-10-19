@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Simulation</title>
+  <style>
+    .mobile {
+      border: 1px solid #000;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+    }
+    .mobile p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile" id="nokia">
+    <h3>Nokia</h3>
+    <p>Pin: <span id="nokia-battery">100</span></p>
+    <p>Message: <input type="text" id="nokia-message"></p>
+    <button onclick="nokia.turnOn()">Turn On</button>
+    <button onclick="nokia.turnOff()">Turn Off</button>
+    <button onclick="nokia.chargeBattery()">Charge Battery</button>
+    <button onclick="nokia.sendMessage(iphone)">Send Message to iPhone</button>
+    <button onclick="nokia.viewInbox()">View Inbox</button>
+    <button onclick="nokia.viewSent()">View Sent</button>
+  </div>
+
+  <div class="mobile" id="iphone">
+    <h3>iPhone</h3>
+    <p>Pin: <span id="iphone-battery">100</span></p>
+    <p>Inbox: <span id="iphone-inbox">No messages</span></p>
+    <button onclick="iphone.turnOn()">Turn On</button>
+    <button onclick="iphone.turnOff()">Turn Off</button>
+    <button onclick="iphone.chargeBattery()">Charge Battery</button>
+    <button onclick="iphone.viewInbox()">View Inbox</button>
+    <button onclick="iphone.viewSent()">View Sent</button>
+  </div>
+
+  <script>
+    class Mobile {
+      constructor(name) {
+        this.name = name;
+        this.battery = 100;
+        this.isOn = false;
+        this.draftingMessage = '';
+        this.inbox = [];
+        this.sent = [];
+      }
+
+      turnOn() {
+        if (!this.isOn) {
+          this.isOn = true;
+          alert(`${this.name} is now ON.`);
+        } else {
+          alert(`${this.name} is already ON.`);
+        }
+      }
+
+      turnOff() {
+        if (this.isOn) {
+          this.isOn = false;
+          alert(`${this.name} is now OFF.`);
+        } else {
+          alert(`${this.name} is already OFF.`);
+        }
+      }
+
+      chargeBattery() {
+        if (this.battery < 100) {
+          this.battery = 100;
+          alert(`${this.name} is fully charged.`);
+          this.updateUI();
+        } else {
+          alert(`${this.name} is already fully charged.`);
+        }
+      }
+
+      sendMessage(receiver) {
+        if (!this.isOn) {
+          alert(`${this.name} is OFF. Please turn it ON first.`);
+          return;
+        }
+
+        const message = document.getElementById(`${this.name.toLowerCase()}-message`).value;
+        if (message) {
+          this.draftingMessage = message;
+          this.sent.push(this.draftingMessage);
+          receiver.receiveMessage(this.draftingMessage);
+          this.draftingMessage = '';
+          document.getElementById(`${this.name.toLowerCase()}-message`).value = '';
+          this.decreaseBattery();
+          this.updateUI();
+        } else {
+          alert('No message to send!');
+        }
+      }
+
+      receiveMessage(message) {
+        if (!this.isOn) {
+          alert(`${this.name} is OFF. Turn it ON to receive messages.`);
+          return;
+        }
+        this.inbox.push(message);
+        this.decreaseBattery();
+        this.updateUI();
+      }
+
+      viewInbox() {
+        if (!this.isOn) {
+          alert(`${this.name} is OFF. Please turn it ON to view the inbox.`);
+          return;
+        }
+        const inbox = this.inbox.length > 0 ? this.inbox.join('\n') : 'Inbox is empty.';
+        alert(`${this.name}'s Inbox:\n${inbox}`);
+      }
+
+      viewSent() {
+        if (!this.isOn) {
+          alert(`${this.name} is OFF. Please turn it ON to view sent messages.`);
+          return;
+        }
+        const sent = this.sent.length > 0 ? this.sent.join('\n') : 'No messages sent.';
+        alert(`${this.name}'s Sent Messages:\n${sent}`);
+      }
+
+      decreaseBattery() {
+        if (this.battery > 0) {
+          this.battery -= 1;
+          this.updateUI();
+        } else {
+          alert(`${this.name} has no battery left!`);
+        }
+      }
+
+      updateUI() {
+        document.getElementById(`${this.name.toLowerCase()}-battery`).textContent = this.battery;
+        if (this.name.toLowerCase() === 'iphone') {
+          const inboxText = this.inbox.length > 0 ? this.inbox[this.inbox.length - 1] : 'No messages';
+          document.getElementById('iphone-inbox').textContent = inboxText;
+        }
+      }
+    }
+
+    const nokia = new Mobile('Nokia');
+    const iphone = new Mobile('iPhone');
+  </script>
+
+</body>
+</html>
